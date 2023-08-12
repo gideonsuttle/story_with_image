@@ -7,7 +7,7 @@ import streamlit as st
 from PIL import Image
 import streamlit as st
 st.header("AI story image generator")
-llm = Cohere(cohere_api_key="Q6ryuEOendZO0gOYBrToKNctroY7ehJOkkxeueV2")
+llm = Cohere(cohere_api_key="A7UUGJ3bBddgRO4l2JhbONxSYGrACUlx1fP6aCDk")
 
 
 def generate_image(prompt):
@@ -15,7 +15,7 @@ def generate_image(prompt):
         files={
             'prompt': (None, prompt, 'response')
         },
-        headers={'x-api-key': '1051f780910c468e9b562f10427467ed86261f932d85a9d8b73062d7b30d27a86654934a75079f7890cf02712bf67337'}
+        headers={'x-api-key': 'b5ed6d7f04e664da996088c9bfbe030adc658ce93fc1e8c9d4de893a9d925759c4c72e2b3be49e37c0c7f5fa6fd3c01d'}
     )
 
     if r.ok:
