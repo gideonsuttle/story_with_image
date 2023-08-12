@@ -1,3 +1,4 @@
+import langchain
 from langchain.llms import Cohere
 from langchain import PromptTemplate, LLMChain
 import requests
