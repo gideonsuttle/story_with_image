@@ -5,26 +5,46 @@ import requests
 import io
 import streamlit as st
 from PIL import Image
-import streamlit as st
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Debug: Check if environment variables are loaded
+clipdrop_key = os.getenv('CLIPDROP_API_KEY')
+cohere_key = os.getenv('COHERE_API_KEY')
+
+if not clipdrop_key or not cohere_key:
+    st.error("API keys not found in environment variables. Please check your .env file.")
+    st.stop()
+
 st.header("AI story image generator")
-llm = Cohere(cohere_api_key="A7UUGJ3bBddgRO4l2JhbONxSYGrACUlx1fP6aCDk")
+llm = Cohere(cohere_api_key=cohere_key)
 
 
-def generate_image(prompt):
-    r = requests.post('https://clipdrop-api.co/text-to-image/v1',
-        files={
-            'prompt': (None, prompt, 'response')
-        },
-        headers={'x-api-key': 'b5ed6d7f04e664da996088c9bfbe030adc658ce93fc1e8c9d4de893a9d925759c4c72e2b3be49e37c0c7f5fa6fd3c01d'}
-    )
-
-    if r.ok:
-        images = Image.open(io.BytesIO(r.content))
-        return images
-    else:
-        raise ValueError("Failed to generate image")
-
-
+def generate_image(prompt, save_path=None):
+    try:
+        r = requests.post('https://clipdrop-api.co/text-to-image/v1',
+            files={
+                'prompt': (None, prompt, 'text/plain')
+            },
+            headers={'x-api-key': clipdrop_key}
+        )
+        
+        if r.ok:
+            images = Image.open(io.BytesIO(r.content))
+            if save_path:
+                # Create directory if it doesn't exist
+                os.makedirs(os.path.dirname(save_path), exist_ok=True)
+                images.save(save_path)
+            return images
+        else:
+            st.error(f"API Error: {r.status_code} - {r.text}")
+            raise ValueError(f"Failed to generate image: {r.text}")
+    except Exception as e:
+        st.error(f"Error generating image: {str(e)}")
+        raise
 
 
 def hello():
@@ -53,19 +73,24 @@ def get_titles(response):
 def get_array(response,response1):
     array = response1.split("\n")
     array_para = response.split('-i787k-')
-    index= max([len(array),len(array_para)])
-    images=[]
+    index = max([len(array), len(array_para)])
+    images = []
+    
+    # Create examples directory if it doesn't exist
+    os.makedirs('examples', exist_ok=True)
+    
     for i in range(len(array)):
-        images.append(generate_image(array[i]))
-    for i in range (index):
-        if(i < len(array) and i<6):
+        # Generate image and save it
+        image_path = f'examples/image_{i+1}.jpg'
+        images.append(generate_image(array[i], save_path=image_path))
+    
+    for i in range(index):
+        if i < len(array) and i < 6:
             st.text(array[i])
-        if(i < len(array_para) ):
-            print('yay')
-            st.text_area('',array_para[i])
-        if(i < len(array) and i<6):
-            st.image(images[i]) 
+        if i < len(array_para):
+            st.text_area('', array_para[i])
+        if i < len(array) and i < 6:
+            st.image(images[i])
     print(array)
 # def main():
 st.button("response", on_click=hello())
-
