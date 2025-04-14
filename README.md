@@ -13,7 +13,7 @@ A creative application that generates stories and matching AI-generated images u
 
 Here's how the application works:
 
-1. Enter a story prompt (e.g., "An injured soldier tries to make his way back home")
+1. Enter a story prompt (e.g., "An injured soldier after struggling makes his way back home")
 2. The AI generates a compelling story in 5 paragraphs
 3. The system extracts key scenes from the story
 4. AI generates matching images for each scene
@@ -21,7 +21,7 @@ Here's how the application works:
 
 ### Example Output
 
-For the prompt "An injured soldier tries to make his way back home":
+For the prompt "An injured soldier after struggling makes his way back home":
 
 #### Story:
 ```
