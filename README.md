@@ -25,20 +25,18 @@ For the prompt "An injured soldier tries to make his way back home":
 
 #### Story:
 ```
-As the sun began to set behind the mountain range, the injured soldier continued his weary journey back home. He had been fighting for months, and his body was scarred from head to toe. But he was determined to make it back to his loved ones, even if it meant dragging himself across the terrain.
+ The sun dipped behind the mountains casting a golden glow on the rocky terrain. The injured man struggled onwards, limping from the pain that wracked his body. He had heard stories as a child of the miraculous healings that occurred at the holy site, and he prayed that he would be so blessed. He had no food or water and had gone three days without sustenance. 
 
-The soldier's thoughts turned to his family as he trudged on. He imagined the look on his young daughter's face when she saw him return, and he vowed to make it back to her no matter what. He would endure the pain in his knees and his shoulders, he would deal with the nightmares and the flashbacks. He would do it all to get back home.
+Thirst and hunger were not his only struggles, however. He had been attacked a few nights ago by a roaming group of bandits that had left him with these injuries and fled with his coin and clothes. He had nothing to steal now, but he was afraid of what they might do if they found him again. 
 
-But as the soldier's mind wandered, he began to doubt himself. What if he couldn't make it back in time for his daughter's birthday, which was a week away? What if his injuries were too severe, and he couldn't move quickly enough? The soldier paused for a moment, catching his breath and taking in his surroundings, which seemed so quiet and peaceful despite the violence that had occurred there.
-
-The horizon glowed pink and orange, a reminder that even in the darkest of times, there was still beauty to be found.
+So he pressed on, focusing on the craggy outline of the mountain range that marked his destination. He imagined the cool water he would taste from the fountain and the soft bread that would sustain him. Most of all he imagined the healing touch that would enable him to press on past his injuries and continue to live his life. 
 ```
 
 #### Generated Images:
-![Sunset Scene](examples/sunset.jpg)
-![Soldiers Journey](examples/soldiers.jpg)
-![Challenging Path](examples/path.jpg)
-![Hope](examples/hope.jpg)
+![Golden Glow](https://raw.githubusercontent.com/gideonsuttle/story_with_image/main/examples/image_1.jpg)
+![Survival of the Weak](https://raw.githubusercontent.com/gideonsuttle/story_with_image/main/examples/image_2.jpg)
+![Blessings of the Sacred Site](https://raw.githubusercontent.com/gideonsuttle/story_with_image/main/examples/image_3.jpg)
+![Hope in the Face of Adversity](https://raw.githubusercontent.com/gideonsuttle/story_with_image/main/examples/image_4.jpg)
 
 ## Installation
 
